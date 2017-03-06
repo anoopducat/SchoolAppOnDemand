@@ -31,7 +31,7 @@ public class ApplyLeave extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_leave);
 
-        requestQueue= Volley.newRequestQueue(ApplyLeave.this);
+       requestQueue= Volley.newRequestQueue(ApplyLeave.this);
 
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
 
@@ -86,6 +86,15 @@ public class ApplyLeave extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.imagecircle);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationIcon(R.drawable.back_btn);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         tv1.setText("Apply leave");
     }
