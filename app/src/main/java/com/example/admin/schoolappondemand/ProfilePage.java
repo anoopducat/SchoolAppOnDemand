@@ -23,6 +23,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +50,40 @@ public class ProfilePage extends AppCompatActivity
         nm= (TextView) findViewById(R.id.title_name);
         cls= (TextView) findViewById(R.id.title_class);
 
+        requestQueue= Volley.newRequestQueue(this);
 
+        JsonArrayRequest jsn=new JsonArrayRequest("http://203.124.96.117:8063/Service1.asmx/StudentDetails", new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+
+                for(int i=0;i<jsonArray.length();i++)
+                {
+                    try {
+                        JSONObject object= (JSONObject) jsonArray.get(0);
+
+                        String name =object.getString("Name");
+                        String className=object.getString("ClassName");
+
+                        nm.setText(name);
+                        cls.setText(className);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+                Toast.makeText(ProfilePage.this, "" + volleyError, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        requestQueue.add(jsn);
 
         gridView= (GridView) findViewById(R.id.gv1);
         gridView.setVerticalSpacing(5);
@@ -356,6 +390,7 @@ public class ProfilePage extends AppCompatActivity
 
             }
         });
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_apply_leave"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorIndigo"
+    tools:context="com.example.admin.schoolappondemand.ApplyLeave">
+
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/include" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/et_circular"
+        android:hint="Applicant Name"
+        android:ems="10"
+        android:layout_below="@+id/include"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/et_leave_sname" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Enter Class Name"
+        android:ems="10"
+        android:layout_marginTop="35dp"
+        android:id="@+id/et_leave_cls_name"
+        android:background="@drawable/et_circular"
+        android:layout_below="@+id/et_leave_sname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Enter Your Roll No"
+        android:ems="10"
+        android:background="@drawable/et_circular"
+        android:layout_marginTop="47dp"
+        android:id="@+id/et_leave_roll"
+        android:layout_below="@+id/et_leave_cls_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Apply For leave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/btn_apply_leave" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Enter Your leave Reson"
+        android:ems="10"
+        android:background="@drawable/et_circular"
+        android:layout_marginTop="31dp"
+        android:id="@+id/et_leave_reason"
+        android:layout_below="@+id/et_leave_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/et_circular"
+        android:hint="Enter Leave Date"
+        android:ems="10"
+        android:layout_marginTop="46dp"
+        android:id="@+id/et_leave_date"
+        android:layout_below="@+id/et_leave_roll"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

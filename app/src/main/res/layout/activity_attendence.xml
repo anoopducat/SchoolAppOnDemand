@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_attendence"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.schoolappondemand.Attendence">
+
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/include" />
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="#00F"
+        />
+
+    <TextView
+        android:text="Status :"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:layout_marginStart="10dp"
+         android:layout_below="@+id/calendarView"
+        android:id="@+id/tv_status" />
+
+    <RelativeLayout
+        android:background="@color/colorRed"
+        android:layout_marginTop="15dp"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/calendarView"
+        android:layout_marginStart="320dp"
+      >
+    </RelativeLayout>
+
+    <TextView
+        android:textSize="27sp"
+        android:text="A"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="288dp"
+        android:layout_below="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="P"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="193dp"
+        android:layout_below="@+id/calendarView"
+        android:textSize="27sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+
+    <RelativeLayout
+
+        android:layout_marginStart="229dp"
+        android:background="@color/colorGreen"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/calendarView"
+       >
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/colorAccent"
+        android:layout_marginTop="15dp"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="120dp"
+        android:layout_below="@+id/calendarView"
+        >
+
+    </RelativeLayout>
+
+    <TextView
+        android:text="L"
+        android:textSize="28sp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendarView"
+        android:layout_marginStart="85dp"
+        android:paddingTop="17dp"
+        android:id="@+id/textView6" />
+
+</RelativeLayout>
