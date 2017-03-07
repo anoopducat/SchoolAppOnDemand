@@ -67,7 +67,7 @@ public class HomeWork extends AppCompatActivity {
                 .textColor(Color.LTGRAY, Color.WHITE)    // Text color for none selected Dates, Text color for selected Date.
                 .selectedDateBackground(Color.TRANSPARENT)  // Background color of the selected date cell.
                 .selectorColor(Color.RED)   // Color of the selection indicator bar (default to colorAccent).
-                .build();
+                .build();//
 
         JsonArrayRequest jsn=new JsonArrayRequest("http://203.124.96.117:8063/Service1.asmx/HomeWorkAssignment", new Response.Listener<JSONArray>() {
             @Override
@@ -80,7 +80,7 @@ public class HomeWork extends AppCompatActivity {
 
                         int sdt=object.getInt("AssignDate");
 
-                        
+
 
 
                     } catch (JSONException e) {
