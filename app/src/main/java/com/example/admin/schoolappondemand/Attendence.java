@@ -69,6 +69,8 @@ public class Attendence extends AppCompatActivity {
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
 
+
+
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
@@ -77,7 +79,11 @@ public class Attendence extends AppCompatActivity {
         });
 
         HashSet<CalendarDay> dates;
-        materialCalendarView.addDecorator(new EventDecorator(R.color.colorGreen,setDays));
+        //materialCalendarView.addDecorator(new OneDayDecorator(R.color.colorGreen,setDays));
+        materialCalendarView.addDecorator(new MonDay(R.color.colorIndi,setDays));
+        materialCalendarView.addDecorator(new OneDayDecorator(R.color.colorGreen,setDays));
+        materialCalendarView.addDecorator(new PresentDay());
+        
 
     }
 

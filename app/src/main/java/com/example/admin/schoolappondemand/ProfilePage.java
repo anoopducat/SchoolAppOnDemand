@@ -137,7 +137,7 @@ public class ProfilePage extends AppCompatActivity
         al.add(pf9);
 
         ProfileModel pf10=new ProfileModel();
-        pf10.setName("Exam/Result");
+        pf10.setName("Result");
         pf10.setImage(R.drawable.if_result);
         al.add(pf10);
 
@@ -157,13 +157,13 @@ public class ProfilePage extends AppCompatActivity
         al.add(pf13);
 
         ProfileModel pf14=new ProfileModel();
-        pf14.setName("Vehicle Training");
+        pf14.setName("Vehicle Tracking");
         pf14.setImage(R.drawable.if_vehicletraining);
         al.add(pf14);
 
 
         ProfileModel pf15=new ProfileModel();
-        pf15.setName("Neaws");
+        pf15.setName("News");
         pf15.setImage(R.drawable.if_news);
         al.add(pf15);
 

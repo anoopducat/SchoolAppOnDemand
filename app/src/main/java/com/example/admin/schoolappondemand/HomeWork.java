@@ -23,6 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -32,6 +35,7 @@ import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 public class HomeWork extends AppCompatActivity {
 
     TextView tv1;
+    Date date ;
 
     RecyclerView recyclerView;
 
@@ -41,7 +45,6 @@ public class HomeWork extends AppCompatActivity {
 
     ArrayList<HomeWorkModel> Al=new ArrayList<>();
 
-    int date;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -68,6 +71,9 @@ public class HomeWork extends AppCompatActivity {
                 .selectedDateBackground(Color.TRANSPARENT)  // Background color of the selected date cell.
                 .selectorColor(Color.RED)   // Color of the selection indicator bar (default to colorAccent).
                 .build();//
+        horizontalCalendar.selectDate(date,false);
+
+
 
         JsonArrayRequest jsn=new JsonArrayRequest("http://203.124.96.117:8063/Service1.asmx/HomeWorkAssignment", new Response.Listener<JSONArray>() {
             @Override
@@ -78,9 +84,13 @@ public class HomeWork extends AppCompatActivity {
                     try {
                         JSONObject object= (JSONObject) jsonArray.get(0);
 
-                        int sdt=object.getInt("AssignDate");
-
-
+                        String sdt=object.getString("AssignDate");
+                        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                        try {
+                            date = df.parse(sdt);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
 
 
                     } catch (JSONException e) {
@@ -97,8 +107,7 @@ public class HomeWork extends AppCompatActivity {
 
             }
         });
-
-        requestQueue=Volley.newRequestQueue(this);
+            requestQueue.add(jsn);
 
 
 

@@ -50,6 +50,6 @@ public class Calender extends AppCompatActivity {
             }
         });
 
-        materialCalendarView.addDecorator(new OneDayDecorator());
+        //materialCalendarView.addDecorator(new OneDayDecorator(R.color.colorGreen,set));
     }
 }

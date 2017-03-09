@@ -7,30 +7,31 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 
 /**
- * Created by admin on 3/3/2017.
+ * Created by admin on 3/8/2017.
  */
 
-public class OneDayDecorator implements DayViewDecorator {
+public class PresentDay implements DayViewDecorator {
 
+
+
+    private final Calendar calendar = Calendar.getInstance();
     private CalendarDay date;
-
-    public OneDayDecorator(int colorGreen, HashSet<CalendarDay> setDays) {
-        date = CalendarDay.today();
-    }
 
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-        return date != null && day.equals(date);
+        day.copyTo(calendar);
+        int weekDay = calendar.get(Calendar.DAY_OF_WEEK);
+        return weekDay == Calendar.FRIDAY;
     }
 
     @Override
     public void decorate(DayViewFacade view) {
 
-        view.addSpan(new ForegroundColorSpan(Color.RED));
+        view.addSpan(new ForegroundColorSpan(Color.GREEN));
 
     }
 
