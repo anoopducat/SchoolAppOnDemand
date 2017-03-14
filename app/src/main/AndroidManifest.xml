@@ -4,6 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/if_app_icon"
@@ -20,33 +29,73 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyProfile" />
-        <activity android:name=".Attendence" />
-        <activity android:name=".HomeWork" />
-        <activity android:name=".Fee" />
-        <activity android:name=".Calender" />
-        <activity android:name=".TimeTable" />
-        <activity android:name=".Library" />
-        <activity android:name=".Transport" />
-        <activity android:name=".ExamResult" />
-        <activity android:name=".Hostal" />
-        <activity android:name=".HealthCare" />
-        <activity android:name=".ApplyLeave" />
-        <activity android:name=".VehicleTraining" />
-        <activity android:name=".News" />
-        <activity android:name=".Communication" />
-        <activity android:name=".Circular" />
-        <activity android:name=".Birthday" />
-        <activity android:name=".Download" />
-        <activity android:name=".Gallery" />
-        <activity android:name=".Achievement" />
-        <activity android:name=".MyProfile" />
-        <activity android:name=".StudentAssignment" />
+        <activity android:name=".MyProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Attendence"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeWork"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Fee"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Calender"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimeTable"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Library"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Transport"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ExamResult"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Hostal"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HealthCare"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".News"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Communication"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Circular"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Birthday"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Download"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Gallery"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Achievement"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".StudentAssignment"
+            android:screenOrientation="portrait"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ProfilePage"
             android:label="@string/title_activity_profile_page"
             android:theme="@style/AppTheme" />
-        <activity android:name=".FeesDetail"></activity>
+        <activity android:name=".FeesDetail"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ApplyLeave"
+            android:label="@string/title_activity_apply_leave"
+            android:theme="@style/AppTheme" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".VehicleTracking"
+            android:label="@string/title_activity_vehicle_tracking"></activity>
     </application>
 
 </manifest>

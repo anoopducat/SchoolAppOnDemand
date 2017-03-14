@@ -3,6 +3,7 @@ package com.example.admin.schoolappondemand;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 public class ExamResult extends AppCompatActivity {
@@ -20,9 +21,17 @@ public class ExamResult extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.imagecircle);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        tv1.setText("Exam Result");
+        toolbar.setNavigationIcon(R.drawable.back_btn);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        tv1.setText("Result");
     }
 }

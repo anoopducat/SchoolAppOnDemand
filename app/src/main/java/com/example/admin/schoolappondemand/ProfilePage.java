@@ -313,7 +313,7 @@ public class ProfilePage extends AppCompatActivity
 
                     case 13:
 
-                        Intent i12=new Intent(ProfilePage.this,VehicleTraining.class);
+                        Intent i12=new Intent(ProfilePage.this,VehicleTracking.class);
                         startActivity(i12);
                         //fragmentToLaunch=new VehicleTraining();
                         // isTransaction = true;

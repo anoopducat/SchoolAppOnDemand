@@ -1,5 +1,7 @@
 package com.example.admin.schoolappondemand;
 
+import android.graphics.Bitmap;
+import android.support.v4.util.LruCache;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,7 +12,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -21,9 +25,13 @@ public class MyProfile extends AppCompatActivity {
 
     TextView tv1,uname,ad_no,cls_nm,cls_teacher,mob,father,mother,address;
 
+    NetworkImageView networkImageView;
+
     RequestQueue requestQueue;
 
     String name;
+
+    private ImageLoader mImageLoader;
 
 
     @Override
@@ -32,6 +40,21 @@ public class MyProfile extends AppCompatActivity {
         setContentView(R.layout.activity_my_profile);
 
         requestQueue= Volley.newRequestQueue(this);
+
+        networkImageView= (NetworkImageView) findViewById(R.id.imageView);
+
+        mImageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap> mCache = new LruCache<String, Bitmap>(10);
+            public void putBitmap(String url, Bitmap bitmap) {
+                mCache.put(url, bitmap);
+            }
+            public Bitmap getBitmap(String url) {
+                return mCache.get(url);
+            }
+        });
+
+        networkImageView.setImageUrl("http://schoolappondemand.com/image/StudentImages/images5.jpg",mImageLoader);
+
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);

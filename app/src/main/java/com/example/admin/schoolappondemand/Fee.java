@@ -1,5 +1,6 @@
 package com.example.admin.schoolappondemand;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,8 @@ public class Fee extends AppCompatActivity {
 
     TextView tv1,tf,tl,du,ntl;
 
+    Button btn;
+
     RequestQueue requestQueue;
 
 
@@ -30,6 +33,8 @@ public class Fee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fee);
+
+        btn= (Button) findViewById(R.id.fee_btn);
 
         requestQueue= Volley.newRequestQueue(this);
 
@@ -94,6 +99,14 @@ public class Fee extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Fee.this,FeesDetail.class);
+                startActivity(intent);
             }
         });
 

@@ -13,4 +13,14 @@
         android:id="@+id/include" />
 
 
+    <ImageView
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="99dp"
+        android:layout_below="@+id/include"
+        android:background="@drawable/information_img"
+        android:id="@+id/iv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </RelativeLayout>
