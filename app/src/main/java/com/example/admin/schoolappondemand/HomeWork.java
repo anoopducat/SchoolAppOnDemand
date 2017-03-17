@@ -52,6 +52,10 @@ public class HomeWork extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_work);
+
+
+
+
         requestQueue= Volley.newRequestQueue(this);
 
         Calendar endDate = Calendar.getInstance();
@@ -75,22 +79,47 @@ public class HomeWork extends AppCompatActivity {
 
 
 
-        JsonArrayRequest jsn=new JsonArrayRequest("http://203.124.96.117:8063/Service1.asmx/HomeWorkAssignment", new Response.Listener<JSONArray>() {
+
+
+
+
+
+
+
+        recyclerView= (RecyclerView) findViewById(R.id.rv_hmrk);
+
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+
+
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://203.124.96.117:8063/Service1.asmx/HomeWorkAssignment", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
 
                 for(int i=0;i<jsonArray.length();i++){
 
-                    try {
-                        JSONObject object= (JSONObject) jsonArray.get(0);
+                    HomeWorkModel h1=new HomeWorkModel();
 
-                        String sdt=object.getString("AssignDate");
-                        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-                        try {
-                            date = df.parse(sdt);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
+                    try {
+                        JSONObject object= (JSONObject) jsonArray.get(i);
+
+                        String asd=object.getString("AssignDate");
+                        String ls=object.getString("Lesson");
+                        String chp=object.getString("ChapterNo");
+                        String tnm=object.getString("TeacherName");
+
+                        h1.sethDate(asd);
+                        h1.setHlesson(ls);
+                        h1.setHchapter(chp);
+                        h1.setTchr(tnm);
+
+                        Al.add(h1);
+
+                        HomeHrkAdapter obj=new HomeHrkAdapter(HomeWork.this,R.layout.homework_card,Al);
+                        recyclerView.setAdapter(obj);
+
 
 
                     } catch (JSONException e) {
@@ -103,63 +132,13 @@ public class HomeWork extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
+
                 Toast.makeText(HomeWork.this, "" + volleyError, Toast.LENGTH_SHORT).show();
 
             }
         });
-            requestQueue.add(jsn);
 
-
-
-
-
-
-        HomeWorkModel hmodel=new HomeWorkModel();
-        hmodel.sethDate("Date");
-        hmodel.setHday("Day");
-        hmodel.setHlesson("Lesson 1");
-        hmodel.setHchapter("Computer");
-        hmodel.setImage(R.drawable.book1);
-        Al.add(hmodel);
-
-        HomeWorkModel hmodel1=new HomeWorkModel();
-        hmodel1.sethDate("Date");
-        hmodel1.setHday("Day");
-        hmodel1.setHlesson("Lesson 2");
-        hmodel1.setHchapter("Computer");
-        hmodel1.setImage(R.drawable.book1);
-        Al.add(hmodel1);
-
-        HomeWorkModel hmodel2=new HomeWorkModel();
-        hmodel2.sethDate("Date");
-        hmodel2.setHday("Day");
-        hmodel2.setHlesson("Lesson 3");
-        hmodel2.setHchapter("Computer");
-        hmodel2.setImage(R.drawable.book1);
-        Al.add(hmodel2);
-
-        HomeWorkModel hmodel3=new HomeWorkModel();
-        hmodel3.sethDate("Date");
-        hmodel3.setHday("Day");
-        hmodel3.setHlesson("Lesson 2");
-        hmodel3.setHchapter("Computer");
-        hmodel3.setImage(R.drawable.book1);
-        Al.add(hmodel3);
-
-        HomeWorkModel hmodel4=new HomeWorkModel();
-        hmodel4.sethDate("Date");
-        hmodel4.setHday("Day");
-        hmodel4.setHlesson("Lesson 3");
-        hmodel4.setHchapter("Computer");
-        hmodel4.setImage(R.drawable.book1);
-        Al.add(hmodel4);
-
-        recyclerView= (RecyclerView) findViewById(R.id.rv_hmrk);
-
-        HomeHrkAdapter obj=new HomeHrkAdapter(this,R.layout.homework_card,Al);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        recyclerView.setAdapter(obj);
+        requestQueue.add(jsonArrayRequest);
 
 
 

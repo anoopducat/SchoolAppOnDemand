@@ -21,6 +21,8 @@
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/et_le_from"
+        android:hint="DD//MM//YYYY"
+        android:textAlignment="center"
         android:background="@drawable/et_border"
         android:layout_marginTop="22dp"
         android:layout_below="@+id/tv_frm"
@@ -43,6 +45,8 @@
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/et_le_to"
+        android:hint="DD//MM//YYYY"
+        android:textAlignment="center"
         android:background="@drawable/et_border"
         android:layout_below="@+id/tv_to"
         android:layout_marginTop="20dp"

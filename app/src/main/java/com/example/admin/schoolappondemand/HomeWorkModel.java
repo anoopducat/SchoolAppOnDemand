@@ -13,6 +13,15 @@ public class HomeWorkModel implements Serializable {
     private int image;
     private String hlesson;
     private String hchapter;
+    private String tchr;
+
+    public String getTchr() {
+        return tchr;
+    }
+
+    public void setTchr(String tchr) {
+        this.tchr = tchr;
+    }
 
     public String gethDate() {
         return hDate;

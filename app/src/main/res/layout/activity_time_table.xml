@@ -13,7 +13,12 @@
         android:id="@+id/include" />
 
     <ImageView
+        android:src="@drawable/information_img"
+        android:layout_marginTop="82dp"
+        android:id="@+id/iv_tt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

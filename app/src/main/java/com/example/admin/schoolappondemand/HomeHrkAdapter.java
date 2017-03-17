@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 /**
@@ -21,9 +25,9 @@ public class HomeHrkAdapter extends RecyclerView.Adapter<HomeHrkAdapter.MyHolder
     int res;
     Activity obj;
 
-    HomeHrkAdapter(Activity obj,int res,ArrayList<HomeWorkModel> Al)
+    HomeHrkAdapter(Activity obj, int res, ArrayList<HomeWorkModel> Al)
     {
-        this.obj=obj;
+        this.obj= obj;
         this.res=res;
         this.Al=Al;
     }
@@ -40,11 +44,10 @@ public class HomeHrkAdapter extends RecyclerView.Adapter<HomeHrkAdapter.MyHolder
     public void onBindViewHolder(HomeHrkAdapter.MyHolder holder, int position) {
 
         HomeWorkModel homeWorkModel=Al.get(position);
-        holder.hmk_date.setText(homeWorkModel.gethDate());
-        holder.hmk_day.setText(homeWorkModel.getHday());
+     holder.hmk_date.setText(homeWorkModel.gethDate());
         holder.hmk_lsn.setText(homeWorkModel.getHlesson());
         holder.hmk_chptr.setText(homeWorkModel.getHchapter());
-        holder.ivbk.setImageResource(homeWorkModel.getImage());
+        holder.teacher.setText(homeWorkModel.getTchr());
 
 
 
@@ -57,7 +60,7 @@ public class HomeHrkAdapter extends RecyclerView.Adapter<HomeHrkAdapter.MyHolder
 
     public class MyHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView hmk_date,hmk_day,hmk_lsn,hmk_chptr;
+        TextView hmk_date,hmk_day,hmk_lsn,hmk_chptr,teacher;
         ImageView ivbk;
 
         public MyHolder(View itemView) {
@@ -69,6 +72,7 @@ public class HomeHrkAdapter extends RecyclerView.Adapter<HomeHrkAdapter.MyHolder
             hmk_lsn= (TextView) itemView.findViewById(R.id.lsn_nmbr);
             hmk_chptr= (TextView) itemView.findViewById(R.id.chptr_no);
             ivbk= (ImageView) itemView.findViewById(R.id.iv_book);
+            teacher= (TextView) itemView.findViewById(R.id.tv_day);
         }
     }
 }

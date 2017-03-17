@@ -33,9 +33,8 @@
         android:id="@+id/profile_tv_name" />
 
     <com.android.volley.toolbox.NetworkImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/if_profile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="33dp"
         android:id="@+id/imageView"
         android:layout_below="@+id/profile_tv_name"
